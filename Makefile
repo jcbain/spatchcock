@@ -3,7 +3,7 @@ stop:
 	docker rm -f spatchcock-ui ||  @echo $(shell "docker rm spatchcock-ui failed $$?. moving on")
 	docker network rm spatchcock || @echo $(shell "docker network rm failed $$?. moving on")
 
-build: stop
+build: 
 	docker network create spatchcock
 	docker build -t spatchcock-server -f ./server/Dockerfile ./server
 	docker build -t spatchcock-ui -f ./ui/Dockerfile ./ui

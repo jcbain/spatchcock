@@ -31,5 +31,7 @@ This will remove any containers with the same names as the ones about to be buil
 3. Start `spatchcock` in development mode. Each container can be run in development to make it convenient to develop with.
 
 ```sh
+# added but will need to remove when stop and starting works again
+make stop
 make dev
 ```
