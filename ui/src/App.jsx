@@ -1,7 +1,7 @@
-// import { useEffect } from "react";
+import { useEffect } from "react";
 import React from "react";
 import styled from "styled-components";
-// import axios from "axios";
+import axios from "axios";
 
 const Header = styled.header`
   width: 100%;
@@ -10,12 +10,12 @@ const Header = styled.header`
 `;
 
 const App = () => {
-  //   useEffect(() => {
-  //     axios
-  //       .get("http://localhost:3000/recipes")
-  //       .then((data) => console.log(data))
-  //       .catch((err) => console.log(err));
-  //   }, []);
+  useEffect(() => {
+    axios
+      .get("/server/recipes")
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+  }, []);
   return (
     <div>
       <Header />
