@@ -1,13 +1,9 @@
 import { useEffect } from "react";
 import React from "react";
-import styled from "styled-components";
 import axios from "axios";
 
-const Header = styled.header`
-  width: 100%;
-  height: 40px;
-  background-color: green;
-`;
+// Components
+import Header from "./components/Header";
 
 const App = () => {
   useEffect(() => {
@@ -18,8 +14,6 @@ const App = () => {
   }, []);
   return (
     <div>
-      <Header />
-      <Header />
       <Header />
     </div>
   );
