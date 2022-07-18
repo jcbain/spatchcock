@@ -6,7 +6,7 @@ import axios from "axios";
 const Header = styled.header`
   width: 100%;
   height: 40px;
-  background-color: pink;
+  background-color: green;
 `;
 
 const App = () => {
