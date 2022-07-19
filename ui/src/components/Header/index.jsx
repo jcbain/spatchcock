@@ -1,12 +1,19 @@
 import React from "react";
-import styled from "styled-components";
 
-const Header = styled.header`
-  width: 100%;
-  height: 60px;
-  border-bottom: 2px #d4d4d4 solid;
-`;
+// Components
+import Title from "./Title";
+import Search from "./Search";
+
+// Styles
+import { Header, Content } from "./index.styles";
 
 export default () => {
-  return <Header></Header>;
+  return (
+    <Header>
+      <Content>
+        <Title />
+        <Search />
+      </Content>
+    </Header>
+  );
 };
