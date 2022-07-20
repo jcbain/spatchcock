@@ -15,6 +15,9 @@ export default {
     },
   },
   shadows: {
+    low: `-0.2px 0.6px 0.7px hsl(${colors.shadow} / 0.34),
+    -0.4px 1px 1.2px -1.2px hsl(${colors.shadow} / 0.34),
+    -0.9px 2.4px 2.9px -2.5px hsl(${colors.shadow} / 0.34)`,
     mid: `0px 0.5px 0.5px hsl(${colors.shadow} / 0.33),
     -0.1px 1.3px 1.4px -0.9px hsl(${colors.shadow} / 0.31),
     -0.3px 3.4px 3.7px -1.9px hsl(${colors.shadow} / 0.29),
@@ -30,8 +33,9 @@ export default {
   },
   buttons: {
     colors: {
-      primaryBg: colors.green,
-      primary: colors.white,
+      primaryBg: colors.white,
+      primary: colors.red,
+      border: colors.black80,
     },
   },
   header: {
@@ -58,6 +62,8 @@ export default {
   },
   actionBar: {
     colors: {
+      bottomBorder: colors.black80,
+
       categoryIcon: colors.black60,
       categoryName: colors.black60,
     },

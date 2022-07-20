@@ -13,6 +13,9 @@ export default {
   green60: "#99afaf",
   green80: "#ccd7d7",
 
+  //blue
+  blue: "#1e8bc3",
+
   // red
   red: "#e73c4e",
 

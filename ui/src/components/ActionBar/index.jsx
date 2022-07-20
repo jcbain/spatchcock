@@ -5,24 +5,28 @@ import styled from "styled-components";
 import PrimaryButton from "../Buttons/Primary";
 import Categories from "./Categories";
 
+// Extras
+import devices from "../../styles/breakpoints";
+
 const Wrapper = styled.div`
   width: 100%;
   height: 80px;
   display: flex;
+  border-bottom: 1px solid
+    ${(props) => props.theme.actionBar.colors.bottomBorder};
+  box-shadow: ${(props) => props.theme.shadows.low};
+  align-items: center;
 `;
 
 const Content = styled.section`
   max-width: ${(props) => props.theme.size.content.maxWidth};
-  height: 100%;
   margin: 0px auto;
   padding: 4px;
 
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   flex-grow: 1;
-
-  color: ${(props) => props.theme.header.colors.titleColor};
 `;
 
 const ButtonWrapper = styled.div`
@@ -30,7 +34,10 @@ const ButtonWrapper = styled.div`
   align-items: center;
   justify-content: flex-end;
   padding: 0px ${(props) => props.theme.size.wrapper.paddingH};
-  margin-left: 50px;
+
+  @media ${devices.tablet} {
+    margin-left: 50px;
+  }
 `;
 
 export default () => {

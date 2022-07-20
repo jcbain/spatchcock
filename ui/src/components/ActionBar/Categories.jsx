@@ -11,10 +11,10 @@ import {
 import Category from "./Category";
 
 const icons = [
-  { id: 1, icon: <RamenDining />, name: "recipes" },
-  { id: 2, icon: <Kitchen />, name: "refrigerator" },
-  { id: 3, icon: <LocalBar />, name: "drinks" },
-  { id: 4, icon: <Cake />, name: "baking" },
+  { id: 1, icon: <RamenDining />, name: "recipes", pathname: "/recipes" },
+  { id: 2, icon: <Kitchen />, name: "refrigerator", pathname: "/refrigerator" },
+  { id: 3, icon: <LocalBar />, name: "drinks", pathname: "/drinks" },
+  { id: 4, icon: <Cake />, name: "baking", pathname: "banking" },
 ];
 
 const Wrapper = styled.div`
@@ -26,7 +26,12 @@ const Wrapper = styled.div`
 
 const Categories = () => {
   const categories = icons.map((icon) => (
-    <Category id={icon.id} icon={icon.icon} name={icon.name} />
+    <Category
+      key={icon.id}
+      icon={icon.icon}
+      name={icon.name}
+      pathname={icon.pathname}
+    />
   ));
 
   return <Wrapper>{categories}</Wrapper>;
