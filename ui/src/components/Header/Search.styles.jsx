@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Search = styled.button`
-  border: 2px solid ${(props) => props.theme.header.colors.searchBorder};
+  border: none;
   height: 48px;
   border-radius: 24px;
   position: relative;
@@ -22,6 +22,10 @@ export const Search = styled.button`
   margin: auto;
 
   background-color: ${(props) => props.theme.header.colors.searchBg};
+
+  @media ${devices.laptop} {
+    border: 2px solid ${(props) => props.theme.header.colors.searchBorder};
+  }
 `;
 
 export const IconContainer = styled.span`

@@ -28,6 +28,9 @@ export default {
       keyBShadow1: colors.black80,
       keyBShadow2: colors.white,
       keyBShadow3: colors.black60,
+
+      chipHamburgerIcon: colors.black40,
+      chipAvatarBg: colors.black80,
     },
   },
 };
