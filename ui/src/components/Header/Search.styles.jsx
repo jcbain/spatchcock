@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import { Search as SearchIcon } from "@styled-icons/material-rounded";
 
+// Extras
+import devices from "../../styles/breakpoints";
+
 export const Wrapper = styled.div`
   height: 100%;
 
@@ -11,19 +14,17 @@ export const Wrapper = styled.div`
 export const Search = styled.button`
   border: 2px solid ${(props) => props.theme.header.colors.searchBorder};
   height: 48px;
-  min-width: 180px;
   border-radius: 24px;
   position: relative;
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin: auto;
 
   background-color: ${(props) => props.theme.header.colors.searchBg};
 `;
 
 export const IconContainer = styled.span`
-  position: absolute;
-  top: 4px;
-  left: 4px;
   display: flex;
   align-items: center;
 `;
@@ -37,12 +38,18 @@ export const Text = styled.span`
   font-size: 18px;
   color: ${(props) => props.theme.header.colors.searchBorder};
   padding-left: 8px;
+  display: none;
+
+  @media ${devices.laptop} {
+    display: block;
+    padding-right: 8px;
+  }
 `;
 
 export const IconWrapper = styled.span`
-  height: 36px;
-  width: 36px;
-  border-radius: 18px;
+  height: 34px;
+  width: 34px;
+  border-radius: 17px;
   background-color: ${(props) => props.theme.header.colors.searchIconBg};
   display: flex;
   align-items: center;
@@ -50,11 +57,11 @@ export const IconWrapper = styled.span`
 `;
 
 export const ButtonKeysContainer = styled.span`
-  position: absolute;
-  top: 12px;
-  right: 4px;
-  display: flex;
-  align-items: center;
+  display: none;
+  @media ${devices.laptop} {
+    display: flex;
+    align-items: center;
+  }
 `;
 
 export const ButtonKey = styled.span`
