@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   height: 100%;
+  padding: 0px ${(props) => props.theme.size.wrapper.paddingH};
 
   ${Content} & {
     flex-grow: 1;
@@ -25,7 +26,6 @@ export const Logo = styled(BreakfastDining)`
 export const Title = styled.p`
   color: ${(props) => props.theme.header.colors.title};
   font-size: 24px;
-  display: none;
   @media ${devices.tablet} {
     display: block;
     padding-left: 4px;

@@ -4,6 +4,7 @@ import axios from "axios";
 
 // Components
 import Header from "./components/Header";
+import ActionBar from "./components/ActionBar";
 
 const App = () => {
   useEffect(() => {
@@ -15,6 +16,7 @@ const App = () => {
   return (
     <div>
       <Header />
+      <ActionBar />
     </div>
   );
 };

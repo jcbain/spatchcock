@@ -18,4 +18,7 @@ export default {
 
   // white
   white: "#ffffff",
+
+  // misc
+  shadow: "0deg 0% 69%",
 };

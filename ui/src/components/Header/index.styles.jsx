@@ -6,7 +6,7 @@ import devices from "../../styles/breakpoints";
 export const Header = styled.header`
   width: 100%;
   height: 70px;
-  border-bottom: 2px ${(props) => props.theme.header.colors.bottomBorder} solid;
+  border-bottom: 1px ${(props) => props.theme.header.colors.bottomBorder} solid;
 `;
 
 export const Content = styled.section`

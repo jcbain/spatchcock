@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
 
   display: flex;
   align-items: center;
+  padding-left: 8px;
 `;
 
 export const Button = styled.button`
@@ -20,11 +21,12 @@ export const Button = styled.button`
   justify-content: space-between;
   align-items: center;
   margin: auto;
+  padding: 0px ${(props) => props.theme.size.wrapper.paddingH};
 
   background-color: ${(props) => props.theme.header.colors.searchBg};
-
   @media ${devices.laptop} {
-    border: 2px solid ${(props) => props.theme.header.colors.searchBorder};
+    box-shadow: ${(props) => props.theme.shadows.mid};
+    border: 1px solid ${(props) => props.theme.header.colors.searchBorder};
   }
 `;
 
@@ -38,7 +40,7 @@ export const AvatarWrapper = styled.span`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 10px;
+    margin-left: 12px;
   }
 `;
 
@@ -57,6 +59,6 @@ export const Icon = styled(Menu)`
   color: ${(props) => props.theme.header.colors.chipHamburgerIcon};
   height: 38px;
   @media ${devices.laptop} {
-    height: 26px;
+    height: 22px;
   }
 `;

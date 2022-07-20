@@ -42,6 +42,10 @@ export default createGlobalStyle`
     input, button, textarea, select {
         font: inherit;
     }
+
+    button {
+        padding: 0;
+    }
     /*
     8. Avoid text overflows
     */

@@ -20,11 +20,12 @@ export const Search = styled.button`
   justify-content: space-between;
   align-items: center;
   margin: auto;
-
+  padding: 0px ${(props) => props.theme.size.wrapper.paddingH};
   background-color: ${(props) => props.theme.header.colors.searchBg};
 
   @media ${devices.laptop} {
-    border: 2px solid ${(props) => props.theme.header.colors.searchBorder};
+    box-shadow: ${(props) => props.theme.shadows.mid};
+    border: 1px solid ${(props) => props.theme.header.colors.searchBorder};
   }
 `;
 
