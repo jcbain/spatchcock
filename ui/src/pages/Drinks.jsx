@@ -1,5 +1,8 @@
 import React from "react";
 
+// Components
+import Page from "./Page";
+
 export default () => {
-  return <article>Drinks</article>;
+  return <Page>Drinks</Page>;
 };

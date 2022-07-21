@@ -9,8 +9,9 @@ import Navigation from "./components/Navigation";
 import Home from "./pages/Home";
 import Baking from "./pages/Baking";
 import Create from "./pages/Create";
-import Refrigerator from "./pages/Recipes";
+import Refrigerator from "./pages/Refrigerator";
 import Recipes from "./pages/Recipes";
+import Drinks from "./pages/Drinks";
 
 const App = () => {
   useEffect(() => {
@@ -23,10 +24,11 @@ const App = () => {
     <div>
       <Navigation />
       <Routes>
-        <Route path="home" element={<Baking />} />
-        <Route path="recipes" element={<Home />} />
+        <Route path="/" element={<Home />} />
+        <Route path="recipes" element={<Recipes />} />
         <Route path="baking" element={<Baking />} />
         <Route path="create" element={<Create />} />
+        <Route path="drinks" element={<Drinks />} />
         <Route path="refrigerator" element={<Refrigerator />} />
       </Routes>
     </div>

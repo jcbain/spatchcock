@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import {
   Kitchen,
   LocalBar,
@@ -10,19 +9,16 @@ import {
 // Components
 import Category from "./Category";
 
+// Styles
+import { Wrapper } from "./Categories.styles";
+
+// TODO: move somewhere more appropriate
 const icons = [
   { id: 1, icon: <RamenDining />, name: "recipes", pathname: "/recipes" },
   { id: 2, icon: <Kitchen />, name: "refrigerator", pathname: "/refrigerator" },
   { id: 3, icon: <LocalBar />, name: "drinks", pathname: "/drinks" },
-  { id: 4, icon: <Cake />, name: "baking", pathname: "banking" },
+  { id: 4, icon: <Cake />, name: "baking", pathname: "/baking" },
 ];
-
-const Wrapper = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0px ${(props) => props.theme.size.wrapper.paddingH};
-`;
 
 const Categories = () => {
   const categories = icons.map((icon) => (
