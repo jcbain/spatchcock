@@ -8,7 +8,7 @@ export default {
   },
   size: {
     content: {
-      maxWidth: "840px",
+      maxWidth: "1120px",
     },
     wrapper: {
       paddingH: "6px",

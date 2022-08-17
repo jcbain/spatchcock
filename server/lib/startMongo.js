@@ -9,8 +9,6 @@ const start = async () => {
     console.log("Attempting to connect to mongo...");
     await mongoose.connect(connectionString);
     console.log("Connected to mongo");
-
-    const models = new Models();
   } catch (err) {
     console.log("error", err);
   }

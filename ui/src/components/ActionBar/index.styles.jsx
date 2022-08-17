@@ -5,7 +5,7 @@ import devices from "../../styles/breakpoints";
 
 export const Wrapper = styled.div`
   width: 100%;
-  height: 80px;
+  height: 70px;
   display: flex;
   border-bottom: 1px solid
     ${(props) => props.theme.actionBar.colors.bottomBorder};
