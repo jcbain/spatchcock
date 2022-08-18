@@ -1,6 +1,7 @@
 const { Router } = require("express");
 
 const Recipe = require("../../schema/lib/recipe");
+const SpatchcockError = require("../../SpatchcockError");
 
 const router = Router();
 const allowList = {
@@ -16,54 +17,40 @@ router.use((req, res, next) => {
 
   const authorization = req.get("authorization");
   if (!authorization) {
-    if (!authorization) {
-      return res
-        .status(400)
-        .send({ status: 6900, message: "spatchcock error: not authorized" });
-    }
+    return next(new SpatchcockError(6969));
   }
 
   const splitAuth = authorization.split(" ");
   if (splitAuth.length !== 2 && splitAuth[0].toLowerCase() !== "bearer") {
-    return res
-      .status(400)
-      .send({ status: 6900, message: "spatchcock error: not authorized" });
+    return next(new SpatchcockError(6900));
   }
 
   return next();
 });
 
-router.get("/", async (req, res) => {
+router.get("/", async (req, res, next) => {
   try {
     const recipes = await Recipe.find({ public: true })
       .limit(20)
       .sort("-createdAt");
     res.json(recipes);
   } catch (err) {
-    res
-      .status(400)
-      .send({ status: 6900, message: "spatchcock error: not allowed" });
+    next(err);
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/", async (req, res, next) => {
   const { title, instruction } = req.body;
 
   if (!title) {
-    return res.send({
-      status: 6900,
-      message: "spatchcock error: title is missing",
-    });
+    return next(new SpatchcockError(6800));
   }
 
   try {
     await Recipe.create({ title, instruction });
     res.status(200).send({ status: 4200, message: "success" });
   } catch (err) {
-    console.log(err);
-    res
-      .status(400)
-      .send({ status: 6900, message: "spatchcock error: not allowed" });
+    next(err);
   }
 });
 
@@ -75,10 +62,7 @@ router.put("/:recipe_id", async (req, res) => {
     await Recipe.create(copy);
     res.json(copy);
   } catch (err) {
-    console.log(err);
-    res
-      .status(400)
-      .send({ status: 6900, message: "spatchcock error: not allowed" });
+    return next(err);
   }
 });
 

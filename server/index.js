@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const startMongo = require("./lib/startMongo");
 const recipeRouter = require("./lib/routes/recipes");
 const ingredientRouter = require("./lib/routes/ingredients");
+const errors = require("./lib/middlewares/errors");
 
 const PORT = 3000;
 const app = express();
@@ -18,6 +19,8 @@ const start = async () => {
 
   app.use("/recipes", recipeRouter);
   app.use("/ingredients", ingredientRouter);
+
+  app.use(errors);
 
   app.listen(PORT, () => console.log(`server listening on post ${PORT}`));
 };
