@@ -4,9 +4,9 @@ const Unit = require("./lib/unit");
 
 class Models {
   constructor() {
-    this.ingredient = new Ingredient();
-    this.recipe = new Recipe();
-    this.unit = new Unit();
+    this.Ingredient = Ingredient;
+    this.Recipe = Recipe;
+    this.Unit = Unit;
   }
 }
 
