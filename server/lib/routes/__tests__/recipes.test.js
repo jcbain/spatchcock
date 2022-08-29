@@ -9,15 +9,15 @@ const request = supertest(app);
 
 const models = new Models();
 
-beforeAll(() => {
-  return start().then(() => {
-    return models.Recipe.create(recipeSeeds);
-  });
+beforeAll(async () => {
+  await start();
+  await models.Recipe.create(recipeSeeds);
 });
 
 afterAll(() => {
   stop();
 });
+
 describe("tests for RECIPES endpoints", () => {
   // GET /recipes
   describe("GET /recipes", () => {
@@ -33,6 +33,40 @@ describe("tests for RECIPES endpoints", () => {
 
       expect(firstActual).toBe(expected);
       expect(lastActual).toBe(expected);
+    });
+
+    it("should return less that or equal to 20 recipes", async () => {
+      const res = await request.get("/recipes");
+
+      const maxExpectedValue = 20;
+      const actualLength = res.body.length;
+
+      expect(actualLength).toBeLessThanOrEqual(maxExpectedValue);
+    });
+  });
+
+  // POST /recipes
+  describe("POST /recipes", () => {
+    it("should create a new recipe successfully", async () => {
+      const payload = {
+        title: "ookle nook",
+        instruction: "ookle the nook before snookling the book",
+      };
+
+      try {
+        const res = await request
+          .post("/recipes")
+          .set("Authorization", "Bearer fakebearer")
+          .set("Accept", "application/json")
+          .send(payload);
+
+        console.log(res);
+        // console.log(res);
+
+        // expect(res.status).toBe(200);
+      } catch (err) {
+        console.log(err);
+      }
     });
   });
 });

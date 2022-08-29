@@ -40,17 +40,17 @@ router.get("/", async (req, res, next) => {
 });
 
 router.post("/", async (req, res, next) => {
-  const { title, instruction } = req.body;
+  const { title, instruction, token } = req.body;
 
-  if (!title) {
+  if (!title || !token) {
     return next(new SpatchcockError(6800));
   }
 
   try {
-    await Recipe.create({ title, instruction });
+    await Recipe.create({ title, token });
     res.status(200).send({ status: 4200, message: "success" });
   } catch (err) {
-    next(err);
+    return next(new SpatchcockError(err));
   }
 });
 
