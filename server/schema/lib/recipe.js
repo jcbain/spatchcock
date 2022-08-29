@@ -10,7 +10,7 @@ const recipeSchema = new Schema(
       {
         ingredient: { type: Schema.Types.ObjectId, ref: "Ingredient" },
         quantity: Number,
-        unit: String,
+        unit: { type: Schema.Types.ObjectId, ref: "Ingredient" },
       },
     ],
     instruction: String,

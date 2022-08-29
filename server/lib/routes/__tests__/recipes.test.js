@@ -51,6 +51,7 @@ describe("tests for RECIPES endpoints", () => {
       const payload = {
         title: "ookle nook",
         instruction: "ookle the nook before snookling the book",
+        token: "someToken",
       };
 
       try {
@@ -60,10 +61,7 @@ describe("tests for RECIPES endpoints", () => {
           .set("Accept", "application/json")
           .send(payload);
 
-        console.log(res);
-        // console.log(res);
-
-        // expect(res.status).toBe(200);
+        expect(res.status).toBe(200);
       } catch (err) {
         console.log(err);
       }
