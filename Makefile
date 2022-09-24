@@ -6,15 +6,17 @@ foo = $(bar)
 cleanup-network:
 	@docker network rm ${APPNAME} || echo "${APPNAME} network doesn't exist. Moving on"
 
-cleanup:
+cleanup-containers:
 	@docker rm -f ${APPNAME}-server 
 	@docker rm -f ${APPNAME}-ui 
 	@docker rm -f ${APPNAME}-nginx
 
+cleanup: cleanup-containers cleanup-network
+
 build-network: cleanup-network
 	@docker network create ${APPNAME} || echo "${APPNAME} network already exists. Moving on"
 
-build: cleanup
+build: cleanup-containers
 	@docker build -t ${APPNAME}-server -f ./server/Dockerfile ./server
 	@docker build -t ${APPNAME}-ui -f ./ui/Dockerfile ./ui
 	@docker build -t ${APPNAME}-nginx -f ./nginx/dockerfiles/Dockerfile.prod ./nginx

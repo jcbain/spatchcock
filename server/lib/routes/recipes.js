@@ -1,7 +1,9 @@
 const { Router } = require("express");
 
-const Recipe = require("../../schema/lib/recipe");
+const Models = require("../../schema/models");
 const SpatchcockError = require("../../SpatchcockError");
+
+const models = new Models();
 
 const router = Router();
 const allowList = {
@@ -30,7 +32,7 @@ router.use((req, res, next) => {
 
 router.get("/", async (req, res, next) => {
   try {
-    const recipes = await Recipe.find({ public: true })
+    const recipes = await models.Recipe.find({ public: true })
       .limit(20)
       .sort("-createdAt");
     res.json(recipes);
@@ -40,17 +42,19 @@ router.get("/", async (req, res, next) => {
 });
 
 router.post("/", async (req, res, next) => {
-  const { title, instruction } = req.body;
+  const { title, instruction, token } = req.body;
 
-  if (!title) {
+  if (!title || !token) {
     return next(new SpatchcockError(6800));
   }
 
+  models.Ingredient.checkAndCreate("pizzas");
+
   try {
-    await Recipe.create({ title, instruction });
+    await models.Recipe.create({ title, token, instruction });
     res.status(200).send({ status: 4200, message: "success" });
   } catch (err) {
-    next(err);
+    return next(new SpatchcockError(err));
   }
 });
 
@@ -58,8 +62,8 @@ router.put("/:recipe_id", async (req, res) => {
   const recipeId = req.params.recipe_id;
 
   try {
-    const copy = await Recipe.copy(recipeId);
-    await Recipe.create(copy);
+    const copy = await models.Recipe.copy(recipeId);
+    await models.Recipe.create(copy);
     res.json(copy);
   } catch (err) {
     return next(err);
@@ -68,7 +72,7 @@ router.put("/:recipe_id", async (req, res) => {
 
 router.delete("/:recipe_id", async (req, res) => {
   const recipeId = req.params.recipe_id;
-  await Recipe.deleteOne({ _id: recipeId });
+  await models.Recipe.deleteOne({ _id: recipeId });
   res.status(200).send({ status: 4200, message: "good job" });
 });
 
