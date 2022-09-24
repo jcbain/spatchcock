@@ -48,6 +48,8 @@ router.post("/", async (req, res, next) => {
     return next(new SpatchcockError(6800));
   }
 
+  models.Ingredient.checkAndCreate("pizzas");
+
   try {
     await models.Recipe.create({ title, token, instruction });
     res.status(200).send({ status: 4200, message: "success" });

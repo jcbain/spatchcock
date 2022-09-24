@@ -12,6 +12,7 @@ ingredientSchema.statics.checkAndCreate = async function (name) {
   }
 
   console.log(searchName);
+
   // const newCopy = await this.findById(recipeId).exec();
   // const parentId = newCopy._id;
   // newCopy.parent = Types.ObjectId(parentId);
