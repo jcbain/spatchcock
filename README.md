@@ -4,7 +4,7 @@ The git for food recipes.
 
 ## Installation
 
-Installation instructions pending
+Installation instructions pending...
 
 ### Requirements
 
