@@ -4,6 +4,8 @@ The git for food recipes.
 
 ## Installation
 
+Installation instruction pending
+
 ### Requirements
 
 - GNU Make => v3.8
